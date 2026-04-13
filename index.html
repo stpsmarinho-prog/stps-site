@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STPS — Travaux Publics · Terrassement · Réseaux | Châteaugay (63)</title>
+<meta name="description" content="STPS, prestataire référencé Enedis et GRDF depuis 2012. Terrassement, pose de réseaux électriques et gaz, génie civil ENR. Puy-de-Dôme et Auvergne-Rhône-Alpes. Astreinte 24h/24.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E97A1A;
+    --orange-light: rgba(233,122,26,0.12);
+    --orange-border: rgba(233,122,26,0.3);
+    --navy: #1a2a3a;
+    --navy-dark: #111d27;
+    --white: #ffffff;
+    --gray-bg: #f5f5f3;
+    --gray-text: #6b6b68;
+    --border: rgba(0,0,0,0.1);
+    --radius: 10px;
+    --radius-lg: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: #1a1a18;
+    background: #fff;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-brand {
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-brand span { color: var(--orange); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta {
+    background: var(--orange);
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: #d06b10; color: white !important; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: white; margin: 5px 0; transition: 0.3s; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(233,122,26,0.03) 0, rgba(233,122,26,0.03) 1px,
+      transparent 1px, transparent 24px
+    );
+  }
+  .hero-logo {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px; font-weight: 700;
+    color: white;
+    margin: 0 auto 2rem;
+    position: relative; z-index: 1;
+    border: 3px solid rgba(255,255,255,0.15);
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    position: relative; z-index: 1;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.6rem;
+    position: relative; z-index: 1;
+  }
+  .hero-zone {
+    font-size: 0.8rem;
+    color: var(--orange);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    position: relative; z-index: 1;
+  }
+  .hero-cta {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    position: relative; z-index: 1;
+    margin-bottom: 2.5rem;
+  }
+  .btn-primary {
+    background: var(--orange); color: white;
+    padding: 13px 30px; border-radius: 7px;
+    border: none; font-size: 15px; font-weight: 600;
+    cursor: pointer; text-decoration: none; display: inline-block;
+    font-family: 'Barlow', sans-serif;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #d06b10; }
+  .btn-outline {
+    background: transparent; color: white;
+    padding: 13px 30px; border-radius: 7px;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    font-family: 'Barlow', sans-serif;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+  .hero-badges {
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 6px 16px; border-radius: 20px;
+    font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 500;
+  }
+
+  /* STATS */
+  .stats-section { padding: 3rem 2rem; background: white; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px; max-width: 780px; margin: 0 auto;
+  }
+  .stat-card {
+    background: var(--gray-bg);
+    border-radius: var(--radius);
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.4rem; font-weight: 700;
+    color: var(--orange); line-height: 1;
+  }
+  .stat-label { font-size: 12px; color: var(--gray-text); margin-top: 6px; font-weight: 500; }
+
+  /* SECTIONS */
+  .section { padding: 4rem 2rem; }
+  .section-alt { background: var(--gray-bg); }
+  .section-inner { max-width: 960px; margin: 0 auto; }
+  .section-header { margin-bottom: 2.5rem; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700; color: var(--navy);
+    line-height: 1.15;
+  }
+  .section-desc { font-size: 15px; color: var(--gray-text); margin-top: 8px; max-width: 560px; }
+
+  /* PHOTOS */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .photo-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .photo-card img {
+    width: 100%; height: 200px;
+    object-fit: cover; display: block;
+    transition: transform 0.4s ease;
+  }
+  .photo-card:hover img { transform: scale(1.04); }
+  .photo-caption {
+    padding: 0.85rem 1rem;
+    background: white;
+  }
+  .photo-caption strong { font-size: 13px; font-weight: 600; display: block; }
+  .photo-caption span { font-size: 11px; color: var(--gray-text); }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .service-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    border-top: 3px solid var(--orange);
+    transition: transform 0.2s;
+  }
+  .service-card:hover { transform: translateY(-3px); }
+  .service-icon { font-size: 24px; margin-bottom: 12px; display: block; }
+  .service-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--navy); }
+  .service-desc { font-size: 13px; color: var(--gray-text); line-height: 1.55; }
+
+  /* ATOUTS */
+  .atouts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .atout { display: flex; gap: 14px; align-items: flex-start; }
+  .atout-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--orange-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+    border: 1px solid var(--orange-border);
+  }
+  .atout-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--navy); }
+  .atout-desc { font-size: 13px; color: var(--gray-text); line-height: 1.55; }
+
+  /* CERTIFS */
+  .certifs { display: flex; flex-wrap: wrap; gap: 10px; }
+  .certif-pill {
+    background: var(--orange-light);
+    border: 1px solid var(--orange-border);
+    padding: 8px 18px; border-radius: 24px;
+    font-size: 13px; color: #8b4a0a; font-weight: 600;
+  }
+
+  /* ASTREINTE */
+  .astreinte-box {
+    background: var(--navy); color: white;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    max-width: 620px; margin: 0 auto; text-align: center;
+  }
+  .astreinte-box h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--orange); margin-bottom: 0.5rem;
+  }
+  .astreinte-box p { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 1.25rem; }
+  .astreinte-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem; font-weight: 700; color: white;
+    letter-spacing: 0.04em;
+  }
+  .astreinte-tag { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 6px; }
+
+  /* CONTACT */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 2rem; align-items: start;
+    max-width: 960px; margin: 0 auto;
+  }
+  @media (max-width: 700px) { .contact-layout { grid-template-columns: 1fr; } }
+  .contact-info-list { display: flex; flex-direction: column; gap: 12px; }
+  .cinfo-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem;
+    display: flex; gap: 12px; align-items: center;
+  }
+  .cinfo-icon {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--orange-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .cinfo-label { font-size: 11px; color: var(--gray-text); font-weight: 500; }
+  .cinfo-val { font-size: 13px; font-weight: 600; color: var(--navy); margin-top: 2px; }
+  .form-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+  .form-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem; font-weight: 700; color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+  .form-row { margin-bottom: 1rem; }
+  .form-row label {
+    display: block; font-size: 13px; font-weight: 600;
+    color: var(--navy); margin-bottom: 6px;
+  }
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-size: 14px;
+    color: #1a1a18;
+    font-family: 'Barlow', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #fafafa;
+  }
+  .form-row input:focus,
+  .form-row select:focus,
+  .form-row textarea:focus { border-color: var(--orange); background: white; }
+  .form-row textarea { resize: vertical; min-height: 110px; }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 480px) { .form-2col { grid-template-columns: 1fr; } }
+  .form-submit {
+    width: 100%; background: var(--orange); color: white;
+    border: none; padding: 14px;
+    border-radius: 7px; font-size: 15px; font-weight: 700;
+    cursor: pointer; font-family: 'Barlow', sans-serif;
+    transition: background 0.2s; margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: #d06b10; }
+  .form-submit:disabled { opacity: 0.5; cursor: default; }
+  .form-note { font-size: 12px; color: var(--gray-text); text-align: center; margin-top: 0.75rem; }
+  .success-msg {
+    display: none;
+    background: #eaf3de; border: 1px solid #97c459;
+    border-radius: 8px; padding: 1rem;
+    text-align: center; color: #3b6d11;
+    font-size: 14px; font-weight: 500; margin-top: 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.45);
+    text-align: center; padding: 2rem;
+    font-size: 13px; line-height: 1.7;
+  }
+  footer strong { color: rgba(255,255,255,0.8); }
+  footer a { color: var(--orange); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .section { padding: 2.5rem 1.25rem; }
+    .stats-section { padding: 2rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">STPS<span> ·</span> Travaux Publics</a>
+  <ul class="nav-links">
+    <li><a href="#realisations">Réalisations</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#certifications">Habilitations</a></li>
+    <li><a href="#contact" class="nav-cta">Devis gratuit</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex';document.querySelector('.nav-links').style.flexDirection='column';document.querySelector('.nav-links').style.position='absolute';document.querySelector('.nav-links').style.top='60px';document.querySelector('.nav-links').style.left='0';document.querySelector('.nav-links').style.right='0';document.querySelector('.nav-links').style.background='#1a2a3a';document.querySelector('.nav-links').style.padding='1rem 2rem';document.querySelector('.nav-links').style.gap='1rem'">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero">
+  <div class="hero-logo">STPS</div>
+  <h1>Travaux Publics<br><span>Terrassement · Réseaux</span></h1>
+  <p class="hero-sub">Prestataire référencé <strong>Enedis</strong> et <strong>GRDF</strong> depuis 2012</p>
+  <p class="hero-zone">Puy-de-Dôme · Auvergne-Rhône-Alpes</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Demander un devis</a>
+    <a href="#realisations" class="btn-outline">Voir nos chantiers</a>
+  </div>
+  <div class="hero-badges">
+    <span class="hero-badge">Astreinte 24h/24 — 7j/7</span>
+    <span class="hero-badge">Certification MASE en cours</span>
+    <span class="hero-badge">Autonomie opérationnelle totale</span>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-num">2012</div><div class="stat-label">Année de création</div></div>
+    <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">Service d'astreinte</div></div>
+    <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Donneurs d'ordre majeurs<br>Enedis · GRDF</div></div>
+    <div class="stat-card"><div class="stat-num">63+</div><div class="stat-label">Puy-de-Dôme & départements limitrophes</div></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="realisations">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Galerie chantiers</div>
+      <div class="section-title">Nos réalisations</div>
+      <div class="section-desc">Chantiers réalisés sur le Puy-de-Dôme et en Auvergne-Rhône-Alpes</div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=700&q=80" alt="Terrassement ouverture tranchée réseau">
+        <div class="photo-caption"><strong>Ouverture de tranchée réseau</strong><span>Terrassement · Puy-de-Dôme</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80" alt="Chantier génie civil remblaiement">
+        <div class="photo-caption"><strong>Génie civil et remblaiement</strong><span>Réseaux souterrains · Auvergne</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=700&q=80" alt="Pose réseaux électriques Enedis">
+        <div class="photo-caption"><strong>Pose de réseaux Enedis HTA/BT</strong><span>Extension de branchements complexes</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="Engins de chantier parc matériel">
+        <div class="photo-caption"><strong>Parc matériel en propre</strong><span>Pelles mécaniques, mini-pelles, compacteurs</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=700&q=80" alt="Génie civil ENR parc solaire">
+        <div class="photo-caption"><strong>Génie civil ENR — parc solaire</strong><span>Fourreaux et câbles souterrains</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=700&q=80" alt="Soudure canalisation gaz">
+        <div class="photo-caption"><strong>Soudure haute performance</strong><span>Canalisations gaz et réseaux techniques</span></div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:#999;text-align:center;margin-top:1.5rem">
+      ⚠ Photos illustratives — remplacez-les par vos propres photos de chantier pour personnaliser le site.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Expertise technique</div>
+      <div class="section-title">Nos prestations</div>
+      <div class="section-desc">Interventions techniques sur les réseaux électriques, gaz et génie civil depuis 2012</div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">⛏</span>
+        <div class="service-title">Terrassement & Génie Civil</div>
+        <div class="service-desc">Ouverture de tranchées, blindage, remblaiement, réfection de chaussée</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <div class="service-title">Réseaux Enedis HTA/BT</div>
+        <div class="service-desc">Extension et renouvellement de branchements complexes, raccordement au poste de transformation</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔥</span>
+        <div class="service-title">Réseaux Gaz GRDF</div>
+        <div class="service-desc">Extension de réseaux gaz, renouvellement de branchements, procédures d'abandon et mise en sécurité</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">☀️</span>
+        <div class="service-title">Génie Civil ENR</div>
+        <div class="service-desc">Fourreaux et câbles souterrains pour parcs solaires et IRVE, voirie interne et drainage</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔧</span>
+        <div class="service-title">Soudure haute performance</div>
+        <div class="service-desc">Équipes qualifiées pour les soudures techniques sur canalisations gaz et autres réseaux</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📡</span>
+        <div class="service-title">Détection & Géoréférencement</div>
+        <div class="service-desc">Détection de réseaux par IC ol et géoréférencement des ouvrages souterrains</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Pourquoi nous choisir</div>
+      <div class="section-title">Nos atouts</div>
+    </div>
+    <div class="atouts-grid">
+      <div class="atout">
+        <div class="atout-icon">✓</div>
+        <div>
+          <div class="atout-title">Expertise technique reconnue</div>
+          <div class="atout-desc">Spécialistes du terrassement et des réseaux depuis 2012, référencés Enedis &amp; GRDF — deux donneurs d'ordre au plus haut niveau d'exigence.</div>
+        </div>
+      </div>
+      <div class="atout">
+        <div class="atout-icon">⚙</div>
+        <div>
+          <div class="atout-title">Autonomie opérationnelle totale</div>
+          <div class="atout-desc">Parc d'engins en propre (pelles, camions bennes, compacteurs, matériel de détection) — aucune dépendance à des prestataires extérieurs.</div>
+        </div>
+      </div>
+      <div class="atout">
+        <div class="atout-icon">🌱</div>
+        <div>
+          <div class="atout-title">Démarche RSE engagée</div>
+          <div class="atout-desc">Tri des déchets, éco-conduite, véhicule électrique pour l'encadrement, achats responsables auprès de fournisseurs locaux, certification MASE en cours.</div>
+        </div>
+      </div>
+      <div class="atout">
+        <div class="atout-icon">📋</div>
+        <div>
+          <div class="atout-title">Capacités justifiables</div>
+          <div class="atout-desc">RC Pro, Garantie Décennale, attestations URSSAF, DC1/DC2 disponibles sur demande pour tout appel d'offres ou marché public.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="certifications">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Qualifications</div>
+      <div class="section-title">Habilitations & certifications</div>
+      <div class="section-desc">Toutes les qualifications requises pour les chantiers techniques sensibles</div>
+    </div>
+    <div class="certifs">
+      <span class="certif-pill">AIPR — Autorisation d'Intervention à Proximité des Réseaux</span>
+      <span class="certif-pill">PE — Habilitation gaz (Prestataire Externe)</span>
+      <span class="certif-pill">H0V — Habilitation électrique</span>
+      <span class="certif-pill">CACES — Engins de chantier</span>
+      <span class="certif-pill">Habilitation Soudure</span>
+      <span class="certif-pill">MASE — Certification en cours d'obtention</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" style="text-align:center">
+  <div class="section-inner">
+    <div class="astreinte-box">
+      <h3>Urgence réseau ?</h3>
+      <p>Équipes mobilisables immédiatement, personnel et matériel compris.<br>Expérience sur les réseaux sensibles Enedis et GRDF.</p>
+      <div class="astreinte-num">06 74 16 51 67</div>
+      <div class="astreinte-tag">Disponible 24h/24 — 7j/7</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-inner" style="max-width:960px">
+    <div class="section-header" style="text-align:center">
+      <div class="section-label">Travaillons ensemble</div>
+      <div class="section-title" style="text-align:center">Nous contacter</div>
+      <div class="section-desc" style="max-width:none;text-align:center">Pour un devis, une question ou une urgence réseau</div>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-info-list">
+        <div class="cinfo-card">
+          <div class="cinfo-icon">👤</div>
+          <div><div class="cinfo-label">Dirigeant</div><div class="cinfo-val">M. Marinho</div></div>
+        </div>
+        <div class="cinfo-card">
+          <div class="cinfo-icon">📞</div>
+          <div><div class="cinfo-label">Téléphone</div><div class="cinfo-val"><a href="tel:0674165167" style="color:var(--navy);text-decoration:none">06 74 16 51 67</a></div></div>
+        </div>
+        <div class="cinfo-card">
+          <div class="cinfo-icon">✉</div>
+          <div><div class="cinfo-label">Email</div><div class="cinfo-val"><a href="mailto:entreprise.stps@gmail.com" style="color:var(--orange);text-decoration:none">entreprise.stps@gmail.com</a></div></div>
+        </div>
+        <div class="cinfo-card">
+          <div class="cinfo-icon">🌐</div>
+          <div><div class="cinfo-label">Site web</div><div class="cinfo-val">marinho-stps.fr</div></div>
+        </div>
+        <div class="cinfo-card">
+          <div class="cinfo-icon">📍</div>
+          <div><div class="cinfo-label">Adresse</div><div class="cinfo-val">143 Route de Pompignat<br>63119 Châteaugay (Puy-de-Dôme)</div></div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-title">Envoyer une demande</div>
+        <div class="form-2col">
+          <div class="form-row">
+            <label for="f-nom">Nom / Société *</label>
+            <input type="text" id="f-nom" placeholder="Votre nom ou raison sociale">
+          </div>
+          <div class="form-row">
+            <label for="f-tel">Téléphone *</label>
+            <input type="tel" id="f-tel" placeholder="06 XX XX XX XX">
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="f-email">Email *</label>
+          <input type="email" id="f-email" placeholder="votre@email.fr">
+        </div>
+        <div class="form-row">
+          <label for="f-type">Type de prestation</label>
+          <select id="f-type">
+            <option value="">Sélectionner une prestation...</option>
+            <option>Terrassement &amp; Génie Civil</option>
+            <option>Réseaux Enedis (HTA/BT)</option>
+            <option>Réseaux Gaz GRDF</option>
+            <option>Génie Civil ENR</option>
+            <option>Soudure haute performance</option>
+            <option>Détection &amp; Géoréférencement</option>
+            <option>Urgence réseau</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="f-msg">Description du projet *</label>
+          <textarea id="f-msg" placeholder="Décrivez votre chantier, zone d'intervention, délais souhaités..."></textarea>
+        </div>
+        <button class="form-submit" id="submit-btn" onclick="submitForm()">Envoyer la demande →</button>
+        <p class="form-note">Réponse sous 24h · Devis gratuit · Astreinte 24h/24</p>
+        <div class="success-msg" id="success-msg">
+          ✓ Votre message a bien été envoyé ! M. Marinho vous contactera dans les meilleurs délais.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>STPS</strong> · Travaux Publics, Terrassement &amp; Réseaux · SARL<br>
+  143 Route de Pompignat · 63119 Châteaugay (Puy-de-Dôme)<br>
+  Prestataire référencé <strong>Enedis</strong> &amp; <strong>GRDF</strong> · <a href="mailto:entreprise.stps@gmail.com">entreprise.stps@gmail.com</a> · <a href="tel:0674165167">06 74 16 51 67</a><br>
+  <span style="font-size:11px;margin-top:8px;display:block">© 2025 STPS · Tous droits réservés</span>
+</footer>
+
+<script>
+function submitForm() {
+  var nom = document.getElementById('f-nom').value.trim();
+  var tel = document.getElementById('f-tel').value.trim();
+  var email = document.getElementById('f-email').value.trim();
+  var msg = document.getElementById('f-msg').value.trim();
+  if (!nom || !tel || !email || !msg) {
+    alert('Merci de remplir tous les champs obligatoires (*).');
+    return;
+  }
+  var emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailReg.test(email)) {
+    alert('Merci de saisir une adresse email valide.');
+    return;
+  }
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours...';
+  setTimeout(function() {
+    document.getElementById('success-msg').style.display = 'block';
+    btn.textContent = '✓ Message envoyé';
+  }, 800);
+}
+</script>
+</body>
+</html>
